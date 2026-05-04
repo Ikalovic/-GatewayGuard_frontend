@@ -54,7 +54,9 @@
             </el-select>
           </div>
           <div class="filter-action">
-            <el-button type="primary" @click="loadEvents">查询事件</el-button>
+            <el-button type="primary" class="ai-action-btn ai-action-btn--query" @click="loadEvents">
+              查询事件
+            </el-button>
           </div>
         </div>
       </el-card>

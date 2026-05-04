@@ -52,7 +52,12 @@
                 <el-option label="混合场景" value="mixed" />
               </el-select>
             </div>
-            <el-button type="primary" @click="simulateTraffic" :loading="simLoading">
+            <el-button
+              type="primary"
+              class="console-action-btn console-action-btn--simulate"
+              @click="simulateTraffic"
+              :loading="simLoading"
+            >
               生成模拟流量
             </el-button>
           </div>
@@ -60,10 +65,20 @@
           <div class="console-card">
             <div class="console-card__title">检测器</div>
             <div class="console-actions">
-              <el-button type="warning" @click="trainDetector()" :loading="trainingLoading">
+              <el-button
+                type="warning"
+                class="console-action-btn console-action-btn--train"
+                @click="trainDetector()"
+                :loading="trainingLoading"
+              >
                 训练检测器
               </el-button>
-              <el-button type="danger" @click="runDetection" :loading="detectLoading">
+              <el-button
+                type="danger"
+                class="console-action-btn console-action-btn--detect"
+                @click="runDetection"
+                :loading="detectLoading"
+              >
                 执行异常检测
               </el-button>
             </div>
@@ -84,6 +99,7 @@
             <div class="console-actions">
               <el-button
                 type="success"
+                class="console-action-btn console-action-btn--collect"
                 @click="startCollect"
                 :loading="collectLoading"
                 :disabled="collectStatus.running"
@@ -148,13 +164,27 @@
           <div class="maintenance-item">
             <div class="maintenance-item__title">导入抓包文件</div>
             <div class="maintenance-item__desc">支持服务器上已有的 `pcap / pcapng / blf / asc` 文件。</div>
-            <el-button type="primary" plain @click="showImportDialog = true">打开导入面板</el-button>
+            <el-button
+              type="primary"
+              plain
+              class="console-action-btn console-action-btn--import"
+              @click="showImportDialog = true"
+            >
+              打开导入面板
+            </el-button>
           </div>
 
           <div class="maintenance-item">
             <div class="maintenance-item__title">按条件清理</div>
             <div class="maintenance-item__desc">可按协议、严重程度或保留最近 N 条记录做细粒度清理。</div>
-            <el-button type="warning" plain @click="showPartialClean = true">按条件清理</el-button>
+            <el-button
+              type="warning"
+              plain
+              class="console-action-btn console-action-btn--partial-clean"
+              @click="showPartialClean = true"
+            >
+              按条件清理
+            </el-button>
           </div>
 
           <div class="maintenance-item">
@@ -162,7 +192,14 @@
             <div class="maintenance-actions">
               <el-button @click="keepRecent(500)">保留最近 500 条</el-button>
               <el-button @click="clearByProtocol('CAN')">删除 CAN</el-button>
-              <el-button type="danger" @click="clearData" :loading="clearLoading">清空全部数据</el-button>
+              <el-button
+                type="danger"
+                class="console-action-btn console-action-btn--clear-all"
+                @click="clearData"
+                :loading="clearLoading"
+              >
+                清空全部数据
+              </el-button>
             </div>
           </div>
         </div>
